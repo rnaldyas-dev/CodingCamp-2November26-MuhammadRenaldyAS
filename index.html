@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <span class="topbar-brand">&#9632; Life Dashboard</span>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+      <span class="theme-icon theme-icon--dark">🌙</span>
+      <span class="theme-icon theme-icon--light">☀️</span>
+    </button>
+  </header>
+
+  <div id="app">
+
+    <!-- ─── Greeting Widget ─── -->
+    <section id="widget-greeting" class="widget widget--greeting">
+      <div class="greeting-line">
+        <span id="greeting-text">Good morning, </span><span id="greeting-name" class="editable-name" title="Click to edit your name">World</span><span>!</span>
+      </div>
+      <div id="greeting-date" class="greeting-date"></div>
+      <div id="greeting-time" class="greeting-clock"></div>
+    </section>
+
+    <!-- ─── Focus Timer Widget ─── -->
+    <section id="widget-timer" class="widget widget--timer">
+      <h2 class="widget-title">Focus Timer</h2>
+      <div id="timer-mode" class="timer-mode">Work</div>
+      <div id="timer-display" class="timer-display">25:00</div>
+      <div class="timer-controls">
+        <button id="timer-start" class="btn btn--primary">Start</button>
+        <button id="timer-pause" class="btn btn--secondary" disabled>Pause</button>
+        <button id="timer-reset" class="btn btn--ghost">Reset</button>
+      </div>
+      <div class="timer-config">
+        <label class="config-label">
+          Work
+          <input id="cfg-work" class="config-input" type="number" min="1" max="60" value="25" />
+          min
+        </label>
+        <label class="config-label">
+          Break
+          <input id="cfg-break" class="config-input" type="number" min="1" max="30" value="5" />
+          min
+        </label>
+      </div>
+    </section>
+
+    <!-- ─── To-Do List Widget ─── -->
+    <section id="widget-todo" class="widget widget--todo">
+      <h2 class="widget-title">To-Do</h2>
+      <div class="todo-add">
+        <input id="todo-input" class="text-input" type="text" placeholder="Add a task…" autocomplete="off" />
+        <button id="todo-add-btn" class="btn btn--primary">Add</button>
+      </div>
+      <div class="todo-filters" role="group" aria-label="Filter tasks">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <div id="todo-count" class="todo-count">0 remaining / 0 total</div>
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- ─── Quick Links Widget ─── -->
+    <section id="widget-links" class="widget widget--links">
+      <h2 class="widget-title">Quick Links</h2>
+      <div class="links-add">
+        <input id="link-emoji" class="text-input emoji-input" type="text" placeholder="😀" maxlength="2" aria-label="Emoji icon (optional)" />
+        <input id="link-title" class="text-input" type="text" placeholder="Title" aria-label="Link title" />
+        <input id="link-url" class="text-input" type="url" placeholder="https://…" aria-label="URL" />
+        <button id="link-add-btn" class="btn btn--primary">Add</button>
+      </div>
+      <div id="links-grid" class="links-grid" aria-live="polite"></div>
+    </section>
+
+  </div><!-- /#app -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>
